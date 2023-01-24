@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,10 +26,5 @@ class AppServiceProvider extends ServiceProvider
     {
         // fix "max key length is 1000 byte" issue due to older MySql version
         Schema::defaultStringLength(191);
-
-        Filament::serving(function () {
-            // Using Vite
-            Filament::registerViteTheme('resources/css/filament.css');
-        });
     }
 }
